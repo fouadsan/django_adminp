@@ -20,7 +20,7 @@ class Post(models.Model):
     )
 
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=250, help_text="This is the title")
     excerpt = models.TextField(null=True)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     publish = models.DateTimeField(default=timezone.now)
@@ -35,5 +35,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-
